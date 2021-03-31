@@ -1,0 +1,119 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+                        <h1>Edit Product</h1>
+						<form method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							<label>Name</label>
+							<input type="text" name="name" value="{{Product.name}}"/>
+							<label>Description</label>
+							<textarea name="description"></textarea>
+							<label>Base Price</label>
+                            <input type="number" name="basePrice" value="{{Product.basePrice}}"/>
+							<label>Discount</label>
+                            <input type="number" name="discount" value="{{Product.discount}}"/>
+							<label>Brand</label>
+							<select name="brand" class="form-select">
+								<option selected value="{{Product.brand.name}}">{{Product.brand.name}}</option>
+								{% for i in Brand %}
+								<option value="{{i.name}}">{{i.name}}</option>
+								{% endfor %}
+							</select>
+							<label>Category</label>
+							<select name="category" class="form-select">
+								<option selected value="{{Product.category.name}}">{{Product.category.name}}</option>
+								{% for i in Category %}
+								<option value="{{i.name}}">{{i.name}}</option>
+								{% endfor %}
+							</select>
+							<label>Stock</label>
+							<select name="stock" class="form-select">
+								<option selected value="{{Product.stock}}">{{Product.stock}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Red Color</label>
+							<select name="red" class="form-select">
+								<option selected value="{{Product.red}}">{{Product.red}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Black Color</label>
+							<select name="black" class="form-select">
+								<option selected value="{{Product.black}}">{{Product.black}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>White Color</label>
+							<select name="white" class="form-select">
+								<option selected value="{{Product.white}}">{{Product.white}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Pink Color</label>
+							<select name="pink" class="form-select">
+								<option selected value="{{Product.pink}}">{{Product.pink}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Green Color</label>
+							<select name="green" class="form-select">
+								<option selected value="{{Product.green}}">{{Product.green}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Extra Small Size</label>
+							<select name="xs" class="form-select">
+								<option selected value="{{Product.xs}}">{{Product.xs}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Small Size</label>
+							<select name="s" class="form-select">
+								<option selected value="{{Product.s}}">{{Product.s}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Medium Size</label>
+							<select name="m" class="form-select">
+								<option selected value="{{Product.m}}">{{Product.m}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Large Size</label>
+							<select name="l" class="form-select">
+								<option selected value="{{Product.l}}">{{Product.l}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Extra Large Size</label>
+							<select name="xl" class="form-select">
+								<option selected value="{{Product.xl}}">{{Product.xl}}</option>
+								<option value="1">False</option>
+								<option value="2">True</option>
+							</select>
+							<label>Image 1</label>
+							<input type="file" name="img1">
+							<label>Image 2</label>
+							<input type="file" name="img2">
+							<label>Image 3</label>
+							<input type="file" name="img3">
+							<label>Image 4</label>
+							<input type="file" name="img4">
+							<label>Image 5</label>
+							<input type="file" name="img5">
+							<button type="submit" class="btn btn-default">Edit Product</button>
+						</form>
+
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+
+{% endblock %}
